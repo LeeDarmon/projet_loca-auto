@@ -26,6 +26,7 @@ Class Parking_model extends CI_Model {
 
     public function update($id,$data)
     {
+        $this->db->set($data); 
         $this->db->where('id', $id);
         return $this->db->update('Parking', $data);
     }
