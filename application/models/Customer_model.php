@@ -37,4 +37,12 @@ Class Customer_model extends CI_Model {
         $this->db->delete('Customer');
     }
 
+    public function connect($email,$password){
+
+        $this->db->where('email_cust',$email);
+        $this->db->where('pswd_cust',$password);
+        $query = $this->db->get('Customer');
+        return $query->result();
+    }
+
 }
