@@ -59,6 +59,9 @@
     <input type="submit" name="submit" value="Inscription" class="btn btn-success btn-lg mx-auto d-block">
     </div>
 
+    </div>
+
 </form>
 
 </div>
+

@@ -34,8 +34,9 @@ class Customer_controller extends CI_Controller
         );
 
         if ($this->form_validation->run() === FALSE) {
-            $this->load->view('templates/header');
-            $this->load->view('customer/register', $data);
+            $data['title'] = 'inscription';
+            $this->load->view('templates/header',$data);
+            $this->load->view('customer/register');
             $this->load->view('templates/footer');
         } else {
             $this->Customer_model->insert($data);
@@ -52,7 +53,8 @@ class Customer_controller extends CI_Controller
         $password = $this->input->post('pswd_cust');
 
         if ($this->form_validation->run() === FALSE) {
-            $this->load->view('templates/header');
+            $data['title'] = 'connexion';
+            $this->load->view('templates/header',$data);
             $this->load->view('customer/connect');
             $this->load->view('templates/footer');
         } else {
@@ -79,7 +81,8 @@ class Customer_controller extends CI_Controller
     }
 
     public function profil(){
-        $this->load->view('templates/header');
+        $data['title'] = 'profil';
+        $this->load->view('templates/header',$data);
         $this->load->view('customer/profil');
         $this->load->view('templates/footer');
 

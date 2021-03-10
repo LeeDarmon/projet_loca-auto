@@ -23,6 +23,9 @@
     <input type="submit" name="submit" value="Connexion" class="btn btn-success btn-lg mx-auto d-block">
     </div>
 
+    </div>
+
 </form>
 
 </div>
+
