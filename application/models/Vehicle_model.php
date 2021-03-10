@@ -1,6 +1,7 @@
 <?php
 
-Class Vehicle_model extends CI_Model {
+class Vehicle_model extends CI_Model
+{
 
     public function __construct()
     {
@@ -9,14 +10,47 @@ Class Vehicle_model extends CI_Model {
 
     public function select_all()
     {
-        $query = $this->db->get('Vehicle');
+        $this->db->select(
+            '
+        vehicle.id AS idVehicle,
+        vehicle_model AS Model,
+        vehicle_type,
+        vehicle_description AS Description,
+        nb_seat,
+        nb_vehicle_dispo,
+        price_day,
+        url_image AS Image,
+        id_Mark,
+        id_Parking,
+        Mark.name AS Mark'
+        );
+        $this->db->from('Vehicle');
+        $this->db->join('Mark', 'Vehicle.id_Mark = Mark.id');
+        $query = $this->db->get();
         return $query->result_array();
     }
 
     public function read($id)
     {
-        $query = $this->db->get_where('Vehicle', array('id' => $id));
-        return $query->row_array();
+        $this->db->select(
+            '
+        vehicle.id AS idVehicle,
+        vehicle_model AS Model,
+        vehicle_type,
+        vehicle_description AS Description,
+        nb_seat,
+        nb_vehicle_dispo,
+        price_day,
+        url_image AS Image,
+        id_Mark,
+        id_Parking,
+        Mark.name AS Mark'
+        );
+        $this->db->from('Vehicle');
+        $this->db->join('Mark', 'Vehicle.id_Mark = Mark.id');
+        $query = $this->db->where('vehicle.id', $id);
+        $query = $this->db->get();
+        return $query->result_array();
     }
 
     public function insert($data)
@@ -24,9 +58,9 @@ Class Vehicle_model extends CI_Model {
         return $this->db->insert('Vehicle', $data);
     }
 
-    public function update($id,$data)
+    public function update($id, $data)
     {
-        $this->db->set($data); 
+        $this->db->set($data);
         $this->db->where('id', $id);
         return $this->db->update('Vehicle', $data);
     }
@@ -36,5 +70,4 @@ Class Vehicle_model extends CI_Model {
         $this->db->where('id', $id);
         $this->db->delete('Vehicle');
     }
-
 }

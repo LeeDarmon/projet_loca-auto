@@ -1,7 +1,8 @@
 <?php
-defined('BASEPATH') OR exit('No direct script access allowed');
+defined('BASEPATH') or exit('No direct script access allowed');
 
-class Home_controller extends CI_Controller {
+class Home_controller extends CI_Controller
+{
 
 	/**
 	 * Index Page for this controller.
@@ -20,6 +21,9 @@ class Home_controller extends CI_Controller {
 	 */
 	public function index()
 	{
+		$data['title'] = 'Bienvenue sur Loca-Auto, le premier site de location de véhicules en ligne entre particulier.';
+		$this->load->view('templates/header', $data);
 		$this->load->view('home');
+		$this->load->view('templates/footer');
 	}
 }
