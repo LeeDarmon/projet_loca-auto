@@ -35,7 +35,7 @@ class Rent_controller extends CI_Controller
                 'end_date' => $this->input->post('end_date'),
                 'id_start_park' => $this->input->post('id_start_park'),
                 'id_finish_park' => $this->input->post('id_finish_park'),
-                'valided' => 0,
+                'validated' => 0,
                 'id_Customer' => $session,
                 'id_Vehicle' => $idVehicle,
 
