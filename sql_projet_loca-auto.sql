@@ -89,6 +89,7 @@ CREATE TABLE Rent(
         `end_date`       Date NOT NULL ,
         `id_start_park`  Int NOT NULL ,
         `id_finish_park` Int NOT NULL ,
+        `validated`      Bool NOT NULL,
         `id_Customer`    Int NOT NULL ,
         `id_Vehicle`     Int NOT NULL
 	,CONSTRAINT Rent_PK PRIMARY KEY (`id`)
@@ -142,7 +143,7 @@ VALUES  ('Amiens','400'),
         ('Nice','300');
 
 INSERT INTO `Vehicle` ( `vehicle_model` , `vehicle_type`, `vehicle_description` , `nb_seat` ,`nb_vehicle_dispo`,`price_day`,`url_image`,`id_Mark`,`id_Parking`)
-VALUES  ('208','Berline', 'PEUGEOT 208 1.2 VTI 82 CH', '5','5','69','1.jpg', '8', '1'),
+VALUES  ('208','Berline', 'Lorem ipsum dolor sit, amet consectetur adipisicing elit. Id ipsam doloremque quaerat fugit! Perferendis minima officiis obcaecati dignissimos unde, rem sed delectus repellendus cupiditate eum? Atque esse aperiam dolorum voluptatem.', '5','5','69','1.jpg', '8', '1'),
         ('Twingo III','Citadine','Lorem ipsum dolor sit, amet consectetur adipisicing elit. Id ipsam doloremque quaerat fugit! Perferendis minima officiis obcaecati dignissimos unde, rem sed delectus repellendus cupiditate eum? Atque esse aperiam dolorum voluptatem.', '4','5','53','2.jpg', '1', '2'),
         ('Auris','Moyenne berline','Lorem ipsum dolor sit, amet consectetur adipisicing elit. Id ipsam doloremque quaerat fugit! Perferendis minima officiis obcaecati dignissimos unde, rem sed delectus repellendus cupiditate eum? Atque esse aperiam dolorum voluptatem.','5','5','115', '3.jpg', '13', '3'),
         ('Sandero','Citadine','Lorem ipsum dolor sit, amet consectetur adipisicing elit. Id ipsam doloremque quaerat fugit! Perferendis minima officiis obcaecati dignissimos unde, rem sed delectus repellendus cupiditate eum? Atque esse aperiam dolorum voluptatem.','5','5','51', '4.jpg', '4', '1'),
