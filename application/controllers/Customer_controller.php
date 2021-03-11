@@ -44,10 +44,28 @@ class Customer_controller extends CI_Controller
         }
     }
 
+    public function mail_check($mail){
+        $mail_check = $this->Customer_model->mail_check($mail);
+        var_dump($mail_check);
+        var_dump($mail);
+
+        if(empty($mail_check)){
+            return false;
+        }
+        else{
+            return true;
+        }
+
+    }
+
+
+
     public function connect()
     {
-        $this->form_validation->set_rules('email_cust', 'mail', 'required');
-        $this->form_validation->set_rules('pswd_cust', 'mot de passe', 'required');
+        $this->form_validation->set_rules('email_cust', 'mail', 'required|callback_mail_check');
+        $this->form_validation->set_message('mail_check','email ou mot de passe incorrect');
+        $this->form_validation->set_rules('pswd_cust', 'mot de passe', 'required|callback_pswd_check['.$this->input->post('email_cust').']');
+        
 
         $email = $this->input->post('email_cust');
         $password = $this->input->post('pswd_cust');
@@ -72,6 +90,10 @@ class Customer_controller extends CI_Controller
 
                 $this->session->set_userdata($newdata);
                 redirect('home_controller/index', 'refresh');
+            }
+
+            else{
+
             }
         }
     }

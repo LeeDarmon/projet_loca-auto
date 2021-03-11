@@ -57,4 +57,12 @@ class Customer_model extends CI_Model
         $query = $this->db->get('Customer');
         return $query->result();
     }
+
+    public function mail_check($email){
+        $this->db->where('email_cust', $email);
+        $query = $this->db->get('Customer');
+        return $query->result();
+    }
+
+
 }
