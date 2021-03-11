@@ -22,8 +22,8 @@
     </div>
 
     <div class="col-12 bg-dark pt-5 pb-5 text-white mt-5">
-    <div class="row">
-        <div class="col-12 col-md-6 bg-dark pt-5 pb-5 text-white"></div>
-        <div class="col-12 col-md-6 bg-dark pt-5 pb-5 text-white"></div>
-    </div>
+        <div class="row">
+            <div class="col-12 col-md-6 bg-dark pt-5 pb-5 text-white"></div>
+            <div class="col-12 col-md-6 bg-dark pt-5 pb-5 text-white"></div>
+        </div>
     </div>

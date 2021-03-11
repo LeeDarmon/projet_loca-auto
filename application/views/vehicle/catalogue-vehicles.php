@@ -1,5 +1,5 @@
-<div class="container-fluid mb-5">
-    <h2 class="my-3">Catalogue de véhicules</h2>
+<div class="container mb-5 opacity">
+    <h2 class="my-3 pt-3">Catalogue de véhicules</h2>
     <div class="row py-5">
         <?php
         foreach ($vehicles as $vehicle) {

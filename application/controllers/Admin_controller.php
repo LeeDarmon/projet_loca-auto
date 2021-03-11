@@ -15,35 +15,35 @@ class Admin_controller extends CI_Controller
         $this->load->library('form_validation');
     }
 
-    public function index(){
+    public function index()
+    {
 
         $data['actually_rents'] = $this->Rent_model->select_rent_actually_or_old("actually");
         $data['old_rents'] = $this->Rent_model->select_rent_actually_or_old("old");
         var_dump($data['actually_rent']);
         $data["title"] = 'Admin | Location';
         $this->load->view('templates/header', $data);
-        $this->load->view('admin/homeAdmin',$data); 
+        $this->load->view('admin/homeAdmin', $data);
         $this->load->view('templates/footer', $data);
-
     }
 
-    public function listCustomers(){
+    public function listCustomers()
+    {
 
         $data['customers'] = $this->Customer_model->select_all();
         $data["title"] = 'Admin | Clients';
         $this->load->view('templates/header', $data);
-        $this->load->view('admin/listCustomers',$data); 
+        $this->load->view('admin/listCustomers', $data);
         $this->load->view('templates/footer', $data);
-
     }
 
-    public function listVehicle(){
+    public function listVehicle()
+    {
 
         $data['vehicles'] = $this->Vehicle_model->select_all();
         $data["title"] = 'Admin | Voitures';
         $this->load->view('templates/header', $data);
-        $this->load->view('admin/listVehicles',$data); 
+        $this->load->view('admin/listVehicles', $data);
         $this->load->view('templates/footer', $data);
-
     }
 }

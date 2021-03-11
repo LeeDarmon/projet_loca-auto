@@ -15,7 +15,7 @@
 	</div>
 
 	<!-- Section Cards -->
-	<div class="container-fluid bg-light mb-5">
+	<div class="container-fluid mb-5 opacity">
 		<div class="row py-5">
 			<div class="col-md-4">
 				<div class="card shadow-lg">
@@ -54,8 +54,8 @@
 	</div>
 
 	<div class="row justify-content-center mb-4">
-		<div class="col-md-4">
-			<a class="action-button btn" href="index.php/Vehicle_controller/listVehicles">Voir notre catalogue</a>
+		<div class="col-md-4 text-center">
+			<a class="btn btn-primary" href="index.php/Vehicle_controller/listVehicles">Voir notre catalogue</a>
 		</div>
 	</div>
 

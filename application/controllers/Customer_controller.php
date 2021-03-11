@@ -35,7 +35,7 @@ class Customer_controller extends CI_Controller
 
         if ($this->form_validation->run() === FALSE) {
             $data['title'] = 'inscription';
-            $this->load->view('templates/header',$data);
+            $this->load->view('templates/header', $data);
             $this->load->view('customer/register');
             $this->load->view('templates/footer');
         } else {
@@ -54,7 +54,7 @@ class Customer_controller extends CI_Controller
 
         if ($this->form_validation->run() === FALSE) {
             $data['title'] = 'connexion';
-            $this->load->view('templates/header',$data);
+            $this->load->view('templates/header', $data);
             $this->load->view('customer/connect');
             $this->load->view('templates/footer');
         } else {
@@ -80,11 +80,11 @@ class Customer_controller extends CI_Controller
         }
     }
 
-    public function profil(){
+    public function profil()
+    {
         $data['title'] = 'profil';
-        $this->load->view('templates/header',$data);
+        $this->load->view('templates/header', $data);
         $this->load->view('customer/profil');
         $this->load->view('templates/footer');
-
     }
 }

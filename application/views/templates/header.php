@@ -14,7 +14,7 @@
 </head>
 
 <body>
-    <?php if ($title == 'Bienvenue sur Loca-Auto, le premier site de location de véhicules en ligne entre particulier.') { ?>
+    <?php if ($title == 'Bienvenue sur Loca-Auto !') {; ?>
         <!-- Header -->
         <div class="container-fluid">
             <div class="row justify-content-center align-items-center text-center" id="headerSection">
@@ -38,13 +38,13 @@
                     <a class="nav-link" href="<?= base_url(); ?>">Accueil</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="<?= site_url('...') ?>">Louer une voiture</a>
+                    <a class="nav-link" href="<?= site_url('Vehicle_controller/listVehicles/') ?>">Louer une voiture</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="<?= site_url('...') ?>">Inscription</a>
+                    <a class="nav-link" href="<?= site_url('Customer_controller/register/') ?>">Inscription</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="<?= site_url('...') ?>">Connexion</a>
+                    <a class="nav-link" href="<?= site_url('Customer_controller/connect/') ?>">Connexion</a>
                 </li>
             </ul>
         </div>
