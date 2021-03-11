@@ -1,18 +1,34 @@
 <?php 
 
-    
-    // echo form_open('Rent_controller/addRent');
-    // echo form_label('Prenom'); 
-    // echo form_input(array('id'=>'lastname','name'=>'lastname' , 'value' => set_value( 'lastname' ))); 
-    // echo form_error ( 'lastname' ,  '<div class = "text-danger">' ,  '</div>' );
-    // echo "<br/>"; 
+    echo form_open('Rent_controller/addRent/' . $idVehicle);
 
-    // echo form_label('Date de naissance'); 
-    // echo form_input(array('id'=>'birthdate','name'=>'birthdate', 'value' => set_value( 'birthdate') , "type" => "date")); 
-    // echo form_error ( 'birthdate' ,  '<div class = "text-danger">' ,  '</div>' );
-    // echo "<br/>"; 
+    echo form_label('Date de début'); 
+    echo form_input(array('id'=>'start_date','name'=>'start_date', 'value' => set_value( 'start_date') , "type" => "date")); 
+    echo form_error ( 'start_date' ,  '<div class = "text-danger">' ,  '</div>' );
+    echo "<br/>"; 
 
-    // echo form_submit(array('id'=>'submit','value'=>'Enregistrer')); 
-    // echo form_close(); 
+    echo form_label('Date de fin'); 
+    echo form_input(array('id'=>'end_date','name'=>'end_date', 'value' => set_value( 'end_date') , "type" => "date")); 
+    echo form_error ( 'end_date' ,  '<div class = "text-danger">' ,  '</div>' );
+    echo "<br/>"; 
+
+    foreach($parks as $park) {
+
+        $options[$park['id']] = $park['location'];
+    }
+
+    echo form_label('Lieu de départ'); 
+    echo form_dropdown('id_start_park', $options);
+    echo form_error ( 'id_start_park' ,  '<div class = "text-danger">' ,  '</div>' );
+
+    echo form_label('Lieu d\'arrivé'); 
+    echo form_dropdown('id_finish_park', $options);
+    echo form_error ( 'id_finish_park' ,  '<div class = "text-danger">' ,  '</div>' );
+
+    echo form_label('Prix total');
+
+
+    echo form_submit(array('id'=>'submit','value'=>'Louer')); 
+    echo form_close(); 
 
 ?> 

@@ -11,11 +11,15 @@ class Rent_controller extends CI_Controller
         $this->load->library('form_validation');
     }
 
-    public function addRent(){
+    public function addRent($idVehicle){
 
-        //Les regles sont dans appli/config/form_validation.php
+        $this->form_validation->set_rules('start_date' ,  'date de départ' ,  'required' );
+
         if( $this->form_validation->run() == FALSE ) // Formulaire invalide
         { 
+            $this->load->model('Parking_model');
+            $data['parks'] = $this->Parking_model->select_all();
+            $data['idVehicle'] = $idVehicle;
             $data["title"] = "Enregistrer une location";
             $this->load->view('templates/header', $data);
             $this->load->view('rent/addRentForm', $data);
@@ -23,14 +27,21 @@ class Rent_controller extends CI_Controller
         } 
         else // Le formulaire est valide
         { 
+            $session =4;
             $data = array( 
 
-                'lastname' => $this->input->post('lastname'),
+                'cost' => 1000,
+                'start_date' => $this->input->post('start_date'),
+                'end_date' => $this->input->post('end_date'),
+                'id_start_park' => $this->input->post('id_start_park'),
+                'id_finish_park' => $this->input->post('id_finish_park'),
+                'valided' => 0,
+                'id_Customer' => $session,
+                'id_Vehicle' => $idVehicle,
 
             ); 
             $this->Rent_model->insert($data); 
-
-            $this->Admin_controller->index;
+            redirect("Admin_controller/index");
         } 
     }
 
