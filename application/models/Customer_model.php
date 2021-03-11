@@ -37,6 +37,18 @@ Class Customer_model extends CI_Model {
         $this->db->delete('Customer');
     }
 
+    public function get_customer_rent($id)
+    {
+        $this->db->select('*');
+        $this->db->from('customer');
+        $this->db->join('rent', 'customer.id = rent.id_Customer');
+        $this->db->join('vehicle', 'rent.id_Vehicle = vehicle.id');
+        $this->db->join('mark', 'vehicle.id_Mark = mark.id');
+        $this->db->where('customer.id', $id);
+        $result = $this->db->get();
+        return $result->result();
+    }
+
     public function connect($email,$password){
 
         $this->db->where('email_cust',$email);

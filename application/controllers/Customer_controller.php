@@ -52,6 +52,8 @@ class Customer_controller extends CI_Controller
         $email = $this->input->post('email_cust');
         $password = $this->input->post('pswd_cust');
 
+        $data['title'] = 'profil';
+
         if ($this->form_validation->run() === FALSE) {
             $data['title'] = 'connexion';
             $this->load->view('templates/header',$data);
@@ -64,13 +66,7 @@ class Customer_controller extends CI_Controller
 
                 $newdata = array(
                     'id' =>   $data['connect'][0]->id,
-                    'firstname'  => $data['connect'][0]->firstname,
-                    'lastname'     => $data['connect'][0]->lastname,
-                    'phone_number'     => $data['connect'][0]->phone_number,
-                    'email_cust'     => $data['connect'][0]->email_cust,
-                    'pswd_cust'     => $data['connect'][0]->pswd_cust,
-                    'birth_date'     => $data['connect'][0]->birth_date,
-                    'license'     => $data['connect'][0]->license,
+                    'role' => 'customer',
                     'logged_in' => TRUE
                 );
 
@@ -80,11 +76,55 @@ class Customer_controller extends CI_Controller
         }
     }
 
-    public function profil(){
+    public function profil($id){
+        $data['profil'] = $this->Customer_model->read($id);
         $data['title'] = 'profil';
+        $id = $_SESSION['id'];
+        $data['rent'] = $this->Customer_model->get_customer_rent($id);
         $this->load->view('templates/header',$data);
         $this->load->view('customer/profil');
         $this->load->view('templates/footer');
 
+    }
+
+    public function modify($id){
+        $this->load->helper('form');
+        $this->load->library('form_validation');
+
+        $this->form_validation->set_rules('firstname', 'prenom', 'required');
+        $this->form_validation->set_rules('lastname', 'nom', 'required');
+        $this->form_validation->set_rules('birth_date', 'date de naissance', 'required');
+        $this->form_validation->set_rules('phone_number', 'numeros de telephone', 'required');
+        $this->form_validation->set_rules('email_cust', 'mail', 'required');
+        $this->form_validation->set_rules('pswd_cust', 'mot de passe', 'required');
+        $this->form_validation->set_rules('license', 'license', 'required');
+
+        $modify = array(
+            'lastname' => $this->input->post('lastname'),
+            'firstname' => $this->input->post('firstname'),
+            'birth_date' => $this->input->post('birth_date'),
+            'phone_number' => $this->input->post('phone_number'),
+            'email_cust' => $this->input->post('email_cust'),
+            'pswd_cust' => $this->input->post('pswd_cust'),
+            'license' => $this->input->post('license')
+        );
+
+        
+        $data['profil'] = $this->Customer_model->read($id);
+        $data['title'] = 'Modification profil';
+
+        if ($this->form_validation->run() === FALSE) {
+            $this->load->view('templates/header',$data);
+            $this->load->view('customer/modify', $data);
+            $this->load->view('templates/footer');
+        } else {
+            $this->Customer_model->update($id,$modify);
+            $this->load->view('customer/success');
+        }
+
+    }
+
+    public function disconnect(){
+        
     }
 }

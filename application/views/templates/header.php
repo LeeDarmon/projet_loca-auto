@@ -38,13 +38,13 @@
                     <a class="nav-link" href="<?= base_url(); ?>">Accueil</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="<?= site_url('...') ?>">Louer une voiture</a>
+                    <a class="nav-link" href="<?= site_url('vehicle_controller/listVehicles/') ?>">Louer une voiture</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="<?= site_url('...') ?>">Inscription</a>
+                    <a class="nav-link" href="<?php echo site_url('customer_controller/register/') ?>">Inscription</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="<?= site_url('...') ?>">Connexion</a>
+                    <a class="nav-link" href="<?php echo site_url('customer_controller/connect/') ?>">Connexion</a>
                 </li>
             </ul>
         </div>
