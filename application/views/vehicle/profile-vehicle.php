@@ -6,6 +6,7 @@
     <h2 class="my-3 pt-3">Détails du véhicule</h2>
     <div class="row py-5">
 
+    <?php var_dump($_SESSION['id']) ?>
         <div class="col-md-4">
             <div class="card shadow-lg">
                 <img src="<?= base_url(); ?>assets/images/<?= $vehicle[0]['Image']; ?>" alt="<?= $vehicle[0]['Mark'] . ' ' . $vehicle[0]['Model']; ?>">
@@ -34,8 +35,16 @@
                     <?php
                     if ($vehicle[0]['Dispo'] >= 1) {
                     ?>
+
                         <div>
-                            <a class="btn btn-success" href="<?= base_url(); ?>index.php/Rent_controller/addRent/">Louer ce véhicule</a>
+                            <a class="btn btn-success" href="
+                            <?php if (isset($_SESSION['id']) && $_SESSION['id'] != '') {
+                                echo site_url('Rent_controller/addRent/'.$vehicle[0]['idVehicle']);
+                            } else {
+                                echo site_url('Customer_controller/connect/');
+                            }
+                            ?>
+                            ">Louer ce véhicule</a>
                         </div>
                     <?php
                     }

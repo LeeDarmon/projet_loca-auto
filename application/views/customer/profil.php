@@ -1,5 +1,5 @@
 <div class="container mb-5">
-
+<?php var_dump($_SESSION); ?>
     <h3 class="text-center mt-5">Profil</h3>
 
     <div class="col-12 bg-dark pt-5 pb-5 text-white">

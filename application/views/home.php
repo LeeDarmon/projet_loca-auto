@@ -1,5 +1,5 @@
 <div class="container-fluid">
-
+<?php var_dump($_SESSION); ?>
 	<!-- Jumbotron -->
 	<div class="container my-5">
 		<div class="row">

@@ -1,4 +1,5 @@
 <div class="container opacity mb-5">
+<?php var_dump($_SESSION); ?>
 
     <h2 class="text-center mt-5">Connexion</h2>
 
