@@ -27,7 +27,6 @@ class Rent_controller extends CI_Controller
         } 
         else // Le formulaire est valide
         { 
-            $session =4;
             $data = array( 
 
                 'cost' => 1000,
@@ -36,7 +35,7 @@ class Rent_controller extends CI_Controller
                 'id_start_park' => $this->input->post('id_start_park'),
                 'id_finish_park' => $this->input->post('id_finish_park'),
                 'validated' => 0,
-                'id_Customer' => $session,
+                'id_Customer' => $_SESSION['id'],
                 'id_Vehicle' => $idVehicle,
 
             ); 
