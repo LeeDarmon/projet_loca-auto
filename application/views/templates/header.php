@@ -40,12 +40,28 @@
                 <li class="nav-item">
                     <a class="nav-link" href="<?= site_url('Vehicle_controller/listVehicles/') ?>">Louer une voiture</a>
                 </li>
+                <?php if(isset($_SESSION['id'])){
+                     ?>
+                     <li class="nav-item">
+                    <a class="nav-link" href="<?= site_url('Customer_controller/profil/'.$_SESSION['id']) ?>">profil</a>
+                </li>
                 <li class="nav-item">
+                    <a class="nav-link" href="<?= site_url('Customer_controller/disconnect/') ?>">Deconnexion</a>
+                </li>
+                <?php
+
+                }
+                else{
+                    ?>
+                     <li class="nav-item">
                     <a class="nav-link" href="<?= site_url('Customer_controller/register/') ?>">Inscription</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="<?= site_url('Customer_controller/connect/') ?>">Connexion</a>
                 </li>
+                <?php
+                }
+               ?>
             </ul>
         </div>
     </nav>
