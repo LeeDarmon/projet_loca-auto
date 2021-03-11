@@ -21,7 +21,7 @@ class Home_controller extends CI_Controller
 	 */
 	public function index()
 	{
-		$data['title'] = 'Bienvenue sur Loca-Auto, le premier site de location de véhicules en ligne entre particulier.';
+		$data['title'] = 'Bienvenue sur Loca-Auto !';
 		$this->load->view('templates/header', $data);
 		$this->load->view('home');
 		$this->load->view('templates/footer');

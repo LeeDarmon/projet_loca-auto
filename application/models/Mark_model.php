@@ -1,6 +1,7 @@
 <?php
 
-Class Mark_model extends CI_Model {
+class Mark_model extends CI_Model
+{
 
     public function __construct()
     {
@@ -24,9 +25,9 @@ Class Mark_model extends CI_Model {
         return $this->db->insert('Mark', $data);
     }
 
-    public function update($id,$data)
+    public function update($id, $data)
     {
-        $this->db->set($data); 
+        $this->db->set($data);
         $this->db->where('id', $id);
         return $this->db->update('Mark', $data);
     }
@@ -36,5 +37,4 @@ Class Mark_model extends CI_Model {
         $this->db->where('id', $id);
         $this->db->delete('Mark');
     }
-
 }

@@ -44,5 +44,4 @@ class Rent_controller extends CI_Controller
             redirect("Admin_controller/index");
         } 
     }
-
 }

@@ -1,31 +1,29 @@
-<div class="container mb-5">
+<div class="container opacity mb-5">
 
-<h3 class="text-center mt-5">Connexion</h3>
+    <h2 class="text-center mt-5">Connexion</h2>
 
-<?php echo form_open('customer_controller/connect'); ?>
+    <?= form_open('customer_controller/connect'); ?>
 
-    <div class="row">
+    <div class="row justify-content-center">
+        <div class="col-12 col-md-6">
+            <label for="email_cust">Email</label>
+            <input type="email" name="email_cust" class="form-control">
+            <?= form_error('email_cust'); ?>
+        </div>
+    </div>
+    <div class="row justify-content-center">
+        <div class="col-12 col-md-6">
+            <label for="pswd_cust">Mot de passe</label>
+            <input type="password" name="pswd_cust" class="form-control">
+            <?= form_error('pswd_cust'); ?>
+        </div>
+    </div>
+    <p class="text-center">Pour vous inscrire cliquez sur ce <a href="<?= site_url('Customer_controller/register/'); ?>">lien</a></p>
 
-    <div class="col-12 col-md-6">
-    <label for="email_cust">Mail</label>
-    <input type="email" name="email_cust" class="form-control">
-    <?php echo form_error('email_cust'); ?>
+    <div class="row justify-content-center my-4 pb-4">
+        <input type="submit" name="submit" value="Connexion" class="btn btn-success">
     </div>
 
-    <div class="col-12 col-md-6">
-    <label for="pswd_cust">Password</label>
-    <input type="password" name="pswd_cust" class="form-control">
-    <?php echo form_error('pswd_cust'); ?>
-    </div>
-
-
-    <div class="offset-3 col-6 mt-3">
-    <input type="submit" name="submit" value="Connexion" class="btn btn-success btn-lg mx-auto d-block">
-    </div>
-
-    </div>
-
-</form>
+    <?= form_close(); ?>
 
 </div>
-
