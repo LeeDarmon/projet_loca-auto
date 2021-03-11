@@ -1,6 +1,6 @@
 <!-- Section Footer-->
-<footer class="footer text-center">
-    <div class="container">
+<footer class="footer text-center mt-5">
+    <div class="container mt-3">
         <div class="row">
             <!-- Footer Localisation-->
             <div class="col-md-3 mb-5 mb-md-0">

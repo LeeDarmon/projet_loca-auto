@@ -14,7 +14,7 @@ html {
 
 body {
 	font-family: "Poppins", sans-serif;
-	background-image: url("../images/bg.jpg");
+	background-image: url("../images/car-2664447_1920.jpg");
 	background-size: cover;
 	background-attachment: fixed;
 	background-repeat: no-repeat;
@@ -22,20 +22,10 @@ body {
 
 #headerSection {
 	/* background-color: #c5c5c5; */
-	background-image: url("../images/bg2.jpg");
+	background-image: url("../images/car-2580234_640.jpg");
 	background-size: cover;
 	background-repeat: no-repeat;
 	height: 300px;
-}
-
-@media screen and (min-width: 1300px) {
-	#headerSection {
-		background-image: url("../images/bg2.jpg");
-		background-size: cover;
-		background-repeat: no-repeat;
-		background-position: center;
-		height: 250px;
-	}
 }
 
 #titleHeader {
@@ -44,6 +34,24 @@ body {
 	text-shadow: 2px 2px 8px black;
 	color: white;
 	text-transform: uppercase;
+}
+
+@media screen and (min-width: 1300px) {
+	#headerSection {
+		background-image: url("../images/car-2506090_1920.jpg");
+		background-size: cover;
+		background-repeat: no-repeat;
+		background-position: center;
+		height: 300px;
+	}
+
+	#titleHeader {
+		font-size: 100px;
+		font-weight: 700;
+		text-shadow: 2px 2px 8px black;
+		color: white;
+		text-transform: uppercase;
+	}
 }
 
 #backColorJumbotronPres {
@@ -100,4 +108,12 @@ footer {
 .opacity {
 	background-color: rgba(233, 236, 239, 0.7);
 	border-radius: 10px;
+}
+
+#titleSection {
+	font-size: 60px;
+	font-weight: 700;
+	text-shadow: 2px 2px 8px black;
+	color: white;
+	text-transform: uppercase;
 }

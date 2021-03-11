@@ -1,7 +1,7 @@
 <div class="container opacity mb-5">
 
-    <h2 class="text-center mt-5">Connexion</h2>
-
+    <h1 class="text-center mt-5" id="titleSection">Connexion</h1>
+    <?= $error ?? ''; ?>
     <?= form_open('customer_controller/connect'); ?>
 
     <div class="row justify-content-center">
@@ -18,7 +18,7 @@
             <?= form_error('pswd_cust'); ?>
         </div>
     </div>
-    <p class="text-center">Pour vous inscrire cliquez sur ce <a href="<?= site_url('Customer_controller/register/'); ?>">lien</a></p>
+    <p class="text-center">Pour vous inscrire, cliquez sur ce <a href="<?= site_url('Customer_controller/register/'); ?>">lien</a></p>
 
     <div class="row justify-content-center my-4 pb-4">
         <input type="submit" name="submit" value="Connexion" class="btn btn-success">

@@ -50,7 +50,8 @@ class Customer_model extends CI_Model
         return $result->result();
     }
 
-    public function connect($email,$password){
+    public function connect($email, $password)
+    {
 
         $this->db->where('email_cust', $email);
         $this->db->where('pswd_cust', $password);
@@ -58,11 +59,11 @@ class Customer_model extends CI_Model
         return $query->result();
     }
 
-    public function mail_check($email){
+    public function get_cust_connect($email)
+    {
+        $this->db->select('pswd_cust');
         $this->db->where('email_cust', $email);
         $query = $this->db->get('Customer');
         return $query->result();
     }
-
-
 }

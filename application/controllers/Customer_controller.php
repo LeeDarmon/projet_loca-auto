@@ -44,31 +44,12 @@ class Customer_controller extends CI_Controller
         }
     }
 
-    public function mail_check($mail){
-        $mail_check = $this->Customer_model->mail_check($mail);
-        var_dump($mail_check);
-        var_dump($mail);
-
-        if(empty($mail_check)){
-            return false;
-        }
-        else{
-            return true;
-        }
-
-    }
-
 
 
     public function connect()
     {
-        $this->form_validation->set_rules('email_cust', 'mail', 'required|callback_mail_check');
-        $this->form_validation->set_message('mail_check','email ou mot de passe incorrect');
-        $this->form_validation->set_rules('pswd_cust', 'mot de passe', 'required|callback_pswd_check['.$this->input->post('email_cust').']');
-        
-
-        $email = $this->input->post('email_cust');
-        $password = $this->input->post('pswd_cust');
+        $this->form_validation->set_rules('email_cust', 'mail', 'required');
+        $this->form_validation->set_rules('pswd_cust', 'mot de passe', 'required');
 
         $data['title'] = 'profil';
 
@@ -78,37 +59,53 @@ class Customer_controller extends CI_Controller
             $this->load->view('customer/connect');
             $this->load->view('templates/footer');
         } else {
-            $data['connect'] = $this->Customer_model->connect($email, $password);
+            $email = $this->input->post('email_cust');
+            $password = $this->input->post('pswd_cust');
+            if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+                $result = $this->Customer_model->get_cust_connect($email);
+                if ($result == NULL) {
+                    $data['error'] = 'Le champ email et/ou mot de passe sont incorrects';
+                    $data['title'] = 'connexion';
+                    $this->load->view('templates/header', $data);
+                    $this->load->view('customer/connect', $data);
+                    $this->load->view('templates/footer');
+                } else if ($result[0]->pswd_cust != $password) {
+                    $data['error'] = 'Le champ email et/ou mot de passe sont incorrects';
+                    $data['title'] = 'connexion';
+                    $this->load->view('templates/header', $data);
+                    $this->load->view('customer/connect', $data);
+                    $this->load->view('templates/footer');
+                } else {
+                    $data['connect'] = $this->Customer_model->connect($email, $password);
+                    if ($data['connect'] != null) {
 
-            if ($data['connect'] != null) {
+                        $newdata = array(
+                            'id' =>   $data['connect'][0]->id,
+                            'role' => 'customer',
+                            'logged_in' => TRUE
+                        );
 
-                $newdata = array(
-                    'id' =>   $data['connect'][0]->id,
-                    'role' => 'customer',
-                    'logged_in' => TRUE
-                );
-
-                $this->session->set_userdata($newdata);
-                redirect('home_controller/index', 'refresh');
-            }
-
-            else{
-
+                        $this->session->set_userdata($newdata);
+                        redirect('home_controller/index', 'refresh');
+                    }
+                }
             }
         }
     }
 
-    public function profil($id){
+    public function profil($id)
+    {
         $data['profil'] = $this->Customer_model->read($id);
         $data['title'] = 'profil';
         $id = $_SESSION['id'];
         $data['rent'] = $this->Customer_model->get_customer_rent($id);
-        $this->load->view('templates/header',$data);
+        $this->load->view('templates/header', $data);
         $this->load->view('customer/profil');
         $this->load->view('templates/footer');
     }
 
-    public function modify($id){
+    public function modify($id)
+    {
         $this->load->helper('form');
         $this->load->library('form_validation');
 
@@ -130,26 +127,25 @@ class Customer_controller extends CI_Controller
             'license' => $this->input->post('license')
         );
 
-        
+
         $data['profil'] = $this->Customer_model->read($id);
         $data['title'] = 'Modification profil';
 
         if ($this->form_validation->run() === FALSE) {
-            $this->load->view('templates/header',$data);
+            $this->load->view('templates/header', $data);
             $this->load->view('customer/modify', $data);
             $this->load->view('templates/footer');
         } else {
-            $this->Customer_model->update($id,$modify);
+            $this->Customer_model->update($id, $modify);
             redirect('home_controller/index', 'refresh');
         }
-
     }
 
-    public function disconnect(){
+    public function disconnect()
+    {
         $this->session->sess_destroy();
         delete_cookie('ci_session');
-        set_cookie('ci_session','');
+        set_cookie('ci_session', '');
         redirect('home_controller/index', 'refresh');
-        
     }
 }

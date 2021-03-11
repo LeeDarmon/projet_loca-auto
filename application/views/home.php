@@ -1,5 +1,7 @@
 <div class="container-fluid">
-<?php var_dump($_SESSION); ?>
+	<?php
+	// var_dump($_SESSION);
+	?>
 	<!-- Jumbotron -->
 	<div class="container my-5">
 		<div class="row">
@@ -15,9 +17,9 @@
 	</div>
 
 	<!-- Section Cards -->
-	<div class="container-fluid mb-5 opacity">
-		<div class="row py-5">
-			<div class="col-md-4">
+	<div class="container-fluid">
+		<div class="row">
+			<div class="col-md-4 mb-5">
 				<div class="card shadow-lg">
 					<img src="<?= base_url(); ?>assets/images/car-2580234_640.jpg" class="card-img-top" alt="image coccinelle">
 					<div class="card-body">
@@ -28,7 +30,7 @@
 				</div>
 			</div>
 
-			<div class="col-md-4">
+			<div class="col-md-4 mb-5">
 				<div class="card shadow-lg">
 					<img src="<?= base_url(); ?>assets/images/car-2506090_640.jpg" class="card-img-top" alt="image mustang gt">
 					<div class="card-body">
@@ -39,7 +41,7 @@
 				</div>
 			</div>
 
-			<div class="col-md-4">
+			<div class="col-md-4 mb-5">
 				<div class="card shadow-lg">
 					<img src="<?= base_url(); ?>assets/images/car-2664447_640.jpg" class="card-img-top" alt="image plymouth">
 					<div class="card-body">
