@@ -40,7 +40,7 @@ class Customer_controller extends CI_Controller
             $this->load->view('templates/footer');
         } else {
             $this->Customer_model->insert($data);
-            $this->load->view('customer/success');
+            redirect('home_controller/index', 'refresh');
         }
     }
 
@@ -71,7 +71,7 @@ class Customer_controller extends CI_Controller
                 );
 
                 $this->session->set_userdata($newdata);
-                $this->load->view('customer/success', $data);
+                redirect('home_controller/index', 'refresh');
             }
         }
     }
@@ -118,12 +118,16 @@ class Customer_controller extends CI_Controller
             $this->load->view('templates/footer');
         } else {
             $this->Customer_model->update($id,$modify);
-            $this->load->view('customer/success');
+            redirect('home_controller/index', 'refresh');
         }
 
     }
 
     public function disconnect(){
+        $this->session->sess_destroy();
+        delete_cookie('ci_session');
+        set_cookie('ci_session','');
+        redirect('home_controller/index', 'refresh');
         
     }
 }
