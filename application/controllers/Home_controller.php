@@ -19,9 +19,17 @@ class Home_controller extends CI_Controller
 	 * map to /index.php/welcome/<method_name>
 	 * @see https://codeigniter.com/user_guide/general/urls.html
 	 */
+
+	public function __construct()
+	{
+		parent::__construct();
+		$this->load->model('Vehicle_model');
+	}
+
 	public function index()
 	{
 		$data['title'] = 'Bienvenue sur Loca-Auto !';
+		$data['random'] = $this->Vehicle_model->randomizeCards();
 		$this->load->view('templates/header', $data);
 		$this->load->view('home');
 		$this->load->view('templates/footer');

@@ -4,28 +4,34 @@
         <div class="row">
             <!-- Footer Localisation-->
             <div class="col-md-3 mb-5 mb-md-0">
-                <h4 class="text-uppercase mb-4">Adresse</h4>
-                <p class="lead mb-0">
+                <h4 class="text-uppercase">Adresse</h4>
+                <p>
                     Loca-Auto &mdash; La Manu
                     <br />
                     70, rue des Jabobins
                     <br />
                     80000 Amiens
                 </p>
+                <h4 class="text-uppercase">Horaires</h4>
+                <p>
+                    Lundi &mdash; Vendredi : 8h &mdash; 17h.
+                    <br />
+                    Samedi : 8h &mdash; 12h.
+                </p>
             </div>
             <!-- Footer Compte-->
             <div class="col-md-3 mb-5 mb-md-0" id="compte">
-                <h4 class="text-uppercase mb-4">Mon compte</h4>
+                <h4 class="text-uppercase">Mon compte</h4>
                 <ul>
-                    <li><a href="">S'inscrire</a></li>
-                    <li><a href="">Se connecter</a></li>
+                    <li><a href="<?= site_url('Customer_controller/register/') ?>">S'inscrire</a></li>
+                    <li><a href="<?= site_url('Customer_controller/connect/') ?>">Se connecter</a></li>
                     <li><a href="">Mot de passe oublié</a></li>
-                    <li><a href="">Déposer un véhicule</a></li>
+                    <!-- <li><a href="">Déposer un véhicule</a></li> -->
                 </ul>
             </div>
             <!-- Footer Sécurité-->
             <div class="col-md-3 mb-5 mb-md-0" id="agence">
-                <h4 class="text-uppercase mb-4">L'agence Loca-Auto</h4>
+                <h4 class="text-uppercase">L'agence Loca-Auto</h4>
                 <ul>
                     <li><a href="">Politique de confidentialité</a></li>
                     <li><a href="">Mentions légales</a></li>
@@ -42,12 +48,7 @@
 
                 <h4 class="text-uppercase my-4">Nous contacter</h4>
                 <p>tél. : 0606060606</p>
-                <h4 class="text-uppercase mb-4">Horaires</h4>
-                <p>
-                    Lundi &mdash; Vendredi : 8h &mdash; 17h.
-                    <br />
-                    Samedi : 8h &mdash; 12h.
-                </p>
+
             </div>
         </div>
         <div>
