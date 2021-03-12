@@ -3,7 +3,7 @@
 // $vehicle[0]['Dispo'] = 0;
 ?>
 <div class="container my-5">
-    <h1 class="text-center mb-3" id="titleSection">Détails du véhicule</h1>
+    <h1 class="text-center mb-3 opacity" id="titleSection">Détails du véhicule</h1>
     <div class="row justify-content-center">
 
         <div class="col-md-8">

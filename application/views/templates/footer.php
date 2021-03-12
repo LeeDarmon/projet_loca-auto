@@ -1,5 +1,5 @@
 <!-- Section Footer-->
-<footer class="footer text-center mt-5">
+<footer class="footer pt-5 mt-5">
     <div class="container mt-3">
         <div class="row">
             <!-- Footer Localisation-->
