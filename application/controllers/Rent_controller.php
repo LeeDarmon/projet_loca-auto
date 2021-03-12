@@ -6,6 +6,7 @@ class Rent_controller extends CI_Controller
     {
         parent::__construct();
         $this->load->model('Rent_model');
+        $this->load->model('Vehicle_model');
         $this->load->helper('url');
         $this->load->helper('form');
         $this->load->library('form_validation');
@@ -19,6 +20,8 @@ class Rent_controller extends CI_Controller
         { 
             $this->load->model('Parking_model');
             $data['parks'] = $this->Parking_model->select_all();
+            $data['vehicle'] = $this->Vehicle_model->read($idVehicle);
+            
             $data['idVehicle'] = $idVehicle;
             $data["title"] = "Enregistrer une location";
             $this->load->view('templates/header', $data);
@@ -29,7 +32,7 @@ class Rent_controller extends CI_Controller
         { 
             $data = array( 
 
-                'cost' => 1000,
+                'cost' => $this->input->post('final_price'),
                 'start_date' => $this->input->post('start_date'),
                 'end_date' => $this->input->post('end_date'),
                 'id_start_park' => $this->input->post('id_start_park'),
