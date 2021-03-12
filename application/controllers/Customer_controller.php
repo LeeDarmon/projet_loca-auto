@@ -100,7 +100,6 @@ class Customer_controller extends CI_Controller
         $id = $_SESSION['id'];
         $data['actually'] = $this->Customer_model->select_rent_actually_or_old('actually',$id);
         $data['old'] = $this->Customer_model->select_rent_actually_or_old('old',$id);
-        var_dump($data['actually']);
         $this->load->view('templates/header', $data);
         $this->load->view('customer/profil');
         $this->load->view('templates/footer');
