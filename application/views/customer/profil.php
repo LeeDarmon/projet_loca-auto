@@ -52,6 +52,7 @@
                     foreach ($old as $olds) {
                 ?>
                         <p><?php echo $olds->vehicle_model ?> <?php echo $olds->markName ?>- Date de début : <?php echo $olds->start_date ?>- Date de fin : <?php echo $olds->end_date ?></p>
+                        <hr class="text-white">
                 <?php
                     }
                 } else {
