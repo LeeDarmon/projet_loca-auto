@@ -11,7 +11,6 @@
             <th>nbr de place</th>
             <th>nbr dispo</th>
             <th>prix / jour</th>
-            <th>nom image</th>
             <th>ou</th>
         </tr>
         <?php
@@ -26,8 +25,8 @@
                 <td><?= $vehicle['Places']?></td>
                 <td><?= $vehicle['Dispo']?></td>
                 <td><?= $vehicle['Forfait']?></td>
-                <td><?= $vehicle['Image']?></td>
                 <td><?= $vehicle['namePark']?></td>
+                <td><a href = '<?=base_url() . "index.php/Admin_controller/viewVehicle/" . $vehicle['id'] ?>'>Voir plus</a></td>
                 <td><a href = '<?=base_url() . "index.php/Admin_controller/editVehicle/" . $vehicle['id'] ?>'>Modifier</a></td>
                 <td><a href = '<?=base_url() . "index.php/Admin_controller/deleteVehicle/" . $vehicle['id'] ?>'>Supprimer</a></td>
             </tr>

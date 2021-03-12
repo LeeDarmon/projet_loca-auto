@@ -35,6 +35,11 @@ class Admin_controller extends CI_Controller
         $this->load->view('admin/listCustomers', $data);
         $this->load->view('templates/footer', $data);
     }
+
+    public function viewCustomer($idCustomer){
+
+    }
+
     public function deleteCustomer($id){
 
 
@@ -47,6 +52,10 @@ class Admin_controller extends CI_Controller
         $this->load->view('templates/header', $data);
         $this->load->view('admin/listVehicles', $data);
         $this->load->view('templates/footer', $data);
+    }
+
+    public function viewVehicle($isVehicle){
+        
     }
 
     public function addVehicle(){
