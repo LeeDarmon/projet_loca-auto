@@ -20,7 +20,6 @@ class Admin_controller extends CI_Controller
 
         $data['actually_rents'] = $this->Rent_model->select_rent_actually_or_old("actually");
         $data['old_rents'] = $this->Rent_model->select_rent_actually_or_old("old");
-        var_dump($data['actually_rent']);
         $data["title"] = 'Admin | Location';
         $this->load->view('templates/header', $data);
         $this->load->view('admin/homeAdmin', $data);
