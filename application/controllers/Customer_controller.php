@@ -40,7 +40,7 @@ class Customer_controller extends CI_Controller
             $this->load->view('templates/footer');
         } else {
             $this->Customer_model->insert($data);
-            redirect('home_controller/index', 'refresh');
+            redirect('customer_controller/connect', 'refresh');
         }
     }
 
@@ -98,7 +98,9 @@ class Customer_controller extends CI_Controller
         $data['profil'] = $this->Customer_model->read($id);
         $data['title'] = 'profil';
         $id = $_SESSION['id'];
-        $data['rent'] = $this->Customer_model->get_customer_rent($id);
+        $data['actually'] = $this->Customer_model->select_rent_actually_or_old('actually',$id);
+        $data['old'] = $this->Customer_model->select_rent_actually_or_old('old',$id);
+        var_dump($data['actually']);
         $this->load->view('templates/header', $data);
         $this->load->view('customer/profil');
         $this->load->view('templates/footer');

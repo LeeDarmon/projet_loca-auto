@@ -25,29 +25,37 @@
             <div class="col-12 col-md-6 bg-dark pt-5 pb-5 text-white">
                 <h3>Location actuelle</h3>
                 <?php
-                if ($rent != null) {
+                if ($actually != null) {
+                    foreach ($actually as $actuallys) {
                 ?>
-                    <p><?php echo $rent[0]->vehicle_model ?> <?php echo $rent[0]->name ?>- Date de début : <?php echo $rent[0]->start_date ?>- Date de fin : <?php echo $rent[0]->end_date ?></p>
+                        <div class="row">
+                        <div class="col-6"><img src="<?= base_url(); ?>assets/images/<?= $actuallys->url_image; ?>"alt="<?= $actuallys->markName . ' ' . $actuallys->vehicle_model; ?>" class="img-thumbnail"></div>
+                        <p class="col-6"><?php echo $actuallys->vehicle_model ?> <?php echo $actuallys->markName ?>  Date de début : <?php echo $actuallys->start_date ?>- Date de fin : <?php echo $actuallys->end_date ?></p>
+                        </div>
                 <?php
-
+                    }
                 } else {
-                    echo "Aucune location actuellement";
+                    echo "Ce client n'a eu aucune location en historique";
                     echo ("<br>");
                 }
+
                 ?>
+                <p class="text-danger mt-5">
+                Un problème sur une location actuelle?<br>Veuillez nous contacter au mail contact@loca-auto.fr
+                </p>
 
             </div>
             <div class="col-12 col-md-6 bg-dark pt-5 pb-5 text-white">
                 <h3>Historique</h3>
                 <?php
-                if ($rent != null) {
-                    foreach ($rent as $rents) {
+                if ($old != null) {
+                    foreach ($old as $olds) {
                 ?>
-                        <p><?php echo $rents->vehicle_model ?> <?php echo $rents->name ?>- Date de début : <?php echo $rents->start_date ?>- Date de fin : <?php echo $rents->end_date ?></p>
+                        <p><?php echo $olds->vehicle_model ?> <?php echo $olds->markName ?>- Date de début : <?php echo $olds->start_date ?>- Date de fin : <?php echo $olds->end_date ?></p>
                 <?php
                     }
                 } else {
-                    echo "Ce client n'a eu aucune location";
+                    echo "Ce client n'a eu aucune location en historique";
                     echo ("<br>");
                 }
 
