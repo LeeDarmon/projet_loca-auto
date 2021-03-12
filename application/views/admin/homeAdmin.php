@@ -1,5 +1,7 @@
 <div class="container">
 
+    <button><a href="<?= base_url() . 'index.php/Admin_controller/listVehicles' ?>">Liste des voitures</a></button>
+    <button><a href="<?= base_url() . 'index.php/Admin_controller/listCustomers' ?>">Liste des clients</a></button>
     <table>
         <tr>
             <th>ID</th>
