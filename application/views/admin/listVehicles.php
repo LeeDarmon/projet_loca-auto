@@ -26,9 +26,9 @@
                 <td><?= $vehicle['Dispo']?></td>
                 <td><?= $vehicle['Forfait']?></td>
                 <td><?= $vehicle['namePark']?></td>
-                <td><a href = '<?=base_url() . "index.php/Admin_controller/viewVehicle/" . $vehicle['id'] ?>'>Voir plus</a></td>
-                <td><a href = '<?=base_url() . "index.php/Admin_controller/editVehicle/" . $vehicle['id'] ?>'>Modifier</a></td>
-                <td><a href = '<?=base_url() . "index.php/Admin_controller/deleteVehicle/" . $vehicle['id'] ?>'>Supprimer</a></td>
+                <td><a href = "<?=base_url() . 'index.php/Admin_controller/viewVehicle/' . $vehicle['idVehicle'] ?>">Voir plus</a></td>
+                <td><a href = "<?=base_url() . 'index.php/Admin_controller/editVehicle/' . $vehicle['idVehicle'] ?>">Modifier</a></td>
+                <td><a href = "<?=base_url() . 'index.php/Admin_controller/deleteVehicle/' . $vehicle['idVehicle'] ?>">Supprimer</a></td>
             </tr>
         
         <?php
