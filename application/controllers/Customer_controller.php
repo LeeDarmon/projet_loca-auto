@@ -29,7 +29,7 @@ class Customer_controller extends CI_Controller
             'birth_date' => $this->input->post('birth_date'),
             'phone_number' => $this->input->post('phone_number'),
             'email_cust' => $this->input->post('email_cust'),
-            'pswd_cust' => $this->input->post('pswd_cust'),
+            'pswd_cust' => password_hash($this->input->post('pswd_cust'), PASSWORD_DEFAULT),
             'license' => $this->input->post('license')
         );
 
@@ -63,20 +63,22 @@ class Customer_controller extends CI_Controller
             $password = $this->input->post('pswd_cust');
             if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                 $result = $this->Customer_model->get_cust_connect($email);
+                $mdp = $result[0]->pswd_cust;
                 if ($result == NULL) {
                     $data['error'] = 'Le champ email et/ou mot de passe sont incorrects';
                     $data['title'] = 'connexion';
                     $this->load->view('templates/header', $data);
                     $this->load->view('customer/connect', $data);
                     $this->load->view('templates/footer');
-                } else if ($result[0]->pswd_cust != $password) {
+                // } else if ($result[0]->pswd_cust != $password) {
+                } else if (!password_verify($password, $mdp)) {
                     $data['error'] = 'Le champ email et/ou mot de passe sont incorrects';
                     $data['title'] = 'connexion';
                     $this->load->view('templates/header', $data);
                     $this->load->view('customer/connect', $data);
                     $this->load->view('templates/footer');
                 } else {
-                    $data['connect'] = $this->Customer_model->connect($email, $password);
+                    $data['connect'] = $this->Customer_model->connect($email, $mdp);
                     if ($data['connect'] != null) {
 
                         $newdata = array(

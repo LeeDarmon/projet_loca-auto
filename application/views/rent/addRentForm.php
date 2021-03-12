@@ -32,3 +32,13 @@
     echo form_close(); 
 
 ?> 
+
+
+<div class="container">
+    <div class="col-12 bg-dark mt-5 mb-5">
+        <p class="display-3 text-white">Prix final =<span id="final_price"></span></p>
+        <p class="display-3 text-white">Nb jours =<span id="final_days"></span></p>
+        <button id="click">Test</button>
+        
+    </div>
+</div>
