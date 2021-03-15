@@ -35,6 +35,7 @@
         </button>
 
         <div class="collapse navbar-collapse" id="navbarNav">
+        
             <div class="d-flex flex-column flex-md-row w-100">
                 <div class="left-navbar">
                     <ul class="navbar-nav">

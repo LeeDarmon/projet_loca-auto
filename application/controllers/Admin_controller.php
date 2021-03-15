@@ -10,6 +10,7 @@ class Admin_controller extends CI_Controller
         $this->load->model('Mark_model');
         $this->load->model('Parking_model');
         $this->load->model('Rent_model');
+        $this->load->model('Admin_model');
         $this->load->helper('url');
         $this->load->helper('form');
         $this->load->library('form_validation');
@@ -48,6 +49,8 @@ class Admin_controller extends CI_Controller
 
     public function deleteCustomer($idCustomer)
     {
+        $this->Customer_model->delete($idCustomer);
+        $this->listCustomers();
     }
 
     public function listVehicles()
@@ -207,5 +210,65 @@ class Admin_controller extends CI_Controller
     {
         $this->Vehicle_model->delete($idVehicle);
         $this->listVehicles();
+    }
+
+
+
+    public function insert_admin()
+    {
+
+        $password = password_hash('password', PASSWORD_DEFAULT);
+        $data = array(
+            'email_a' => 'admin@admin.fr',
+            'password_a' => $password,
+        );
+        $this->Admin_model->insert($data);
+    }
+
+    public function connect()
+    {
+        $this->form_validation->set_rules('email_a', 'mail', 'required');
+        $this->form_validation->set_rules('password_a', 'mot de passe', 'required');
+
+        $data['title'] = 'profil';
+
+        if ($this->form_validation->run() === FALSE) {
+            $data['title'] = 'connexion';
+            $this->load->view('templates/header', $data);
+            $this->load->view('admin/connect');
+            $this->load->view('templates/footer');
+        } else {
+            $email = $this->input->post('email_a');
+            $password = $this->input->post('password_a');
+            if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+                $result = $this->Admin_model->get_admin_connect($email);
+                $mdp = $result[0]->password_a;
+                if ($result == NULL) {
+                    $data['error'] = 'Le champ email et/ou mot de passe sont incorrects';
+                    $data['title'] = 'connexion';
+                    $this->load->view('templates/header', $data);
+                    $this->load->view('admin/connect', $data);
+                    $this->load->view('templates/footer');
+                    // } else if ($result[0]->password_a != $password) {
+                } else if (!password_verify($password, $mdp)) {
+                    $data['error'] = 'Le champ email et/ou mot de passe sont incorrects';
+                    $data['title'] = 'connexion';
+                    $this->load->view('templates/header', $data);
+                    $this->load->view('admin/connect', $data);
+                    $this->load->view('templates/footer');
+                } else {
+                    $data['connect'] = $this->Admin_model->connect($email, $mdp);
+                    if ($data['connect'] != null) {
+                        $newdata = array(
+                            'id' =>   $data['connect'][0]->id,
+                            'role' => 'admin',
+                            'logged_in' => TRUE
+                        );
+                        $this->session->set_userdata($newdata);
+                        redirect('home_controller/index', 'refresh');
+                    }
+                }
+            }
+        }
     }
 }
