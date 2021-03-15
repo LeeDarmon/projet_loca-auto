@@ -49,6 +49,8 @@ class Admin_controller extends CI_Controller
 
     public function deleteCustomer($idCustomer)
     {
+        $this->Customer_model->delete($idCustomer);
+        $this->listCustomers();
     }
 
     public function listVehicles()

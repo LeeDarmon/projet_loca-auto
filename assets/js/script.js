@@ -29,12 +29,6 @@ $(document).ready(function () {
         $("#cost").val(final_price);
 
     });
-
-
-
-
-    
-
     
 // Button Scroll to Top
 mybutton = document.getElementById("myBtn");

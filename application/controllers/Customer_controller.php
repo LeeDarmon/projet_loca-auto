@@ -95,8 +95,10 @@ class Customer_controller extends CI_Controller
         }
     }
 
-    public function profil($id)
+    
+    public function profil()
     {
+        $id = $_SESSION['id'];
         $data['profil'] = $this->Customer_model->read($id);
         $data['title'] = 'profil';
         $id = $_SESSION['id'];
