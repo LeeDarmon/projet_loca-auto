@@ -18,13 +18,28 @@ class Admin_controller extends CI_Controller
 
     public function index()
     {
+        if(isset($_SESSION['role'])){
 
-        $data['actually_rents'] = $this->Rent_model->select_rent_actually_or_old("actually");
-        $data['old_rents'] = $this->Rent_model->select_rent_actually_or_old("old");
-        $data["title"] = 'Admin | Location';
-        $this->load->view('templates/header', $data);
-        $this->load->view('admin/homeAdmin', $data);
-        $this->load->view('templates/footer', $data);
+            if($_SESSION['role'] == 'admin'){
+
+                $data['actually_rents'] = $this->Rent_model->select_rent_actually_or_old("actually");
+                $data['old_rents'] = $this->Rent_model->select_rent_actually_or_old("old");
+                $data["title"] = 'Admin | Location';
+                $this->load->view('templates/header', $data);
+                $this->load->view('admin/homeAdmin', $data);
+                $this->load->view('templates/footer', $data);
+    
+            }else{
+    
+                echo 'Vous n\'avez rien a faire ici ! OUST !';
+            }
+
+        }else{
+
+            $this->connect();
+        }
+
+
     }
 
     public function listCustomers()
@@ -265,7 +280,7 @@ class Admin_controller extends CI_Controller
                             'logged_in' => TRUE
                         );
                         $this->session->set_userdata($newdata);
-                        redirect('home_controller/index', 'refresh');
+                        $this->index();
                     }
                 }
             }

@@ -40,8 +40,19 @@ class Rent_controller extends CI_Controller
                 'id_Customer' => $_SESSION['id'],
                 'id_Vehicle' => $idVehicle,
             ); 
-            $this->Rent_model->insert($data); 
+            $this->Rent_model->insert($data);
             redirect("Customer_controller/profil/".$_SESSION['id']);
         } 
+    }
+
+    public function valid_rent($idRent){
+
+        $data = array(
+
+            'validated' => 1,
+
+        );
+        $this->Rent_model->update($idRent, $data);
+        redirect("Admin_controller/index");
     }
 }
