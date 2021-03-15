@@ -1,3 +1,7 @@
+<!-- BOUTON SCROLL TO TOP -->
+<button onclick="topFunction()" id="myBtn" title="Go to top">
+    <i class="fas fa-chevron-up"></i>
+</button>
 <!-- Section Footer-->
 <footer class="footer pt-5 mt-5">
     <div class="container mt-3">
@@ -23,10 +27,30 @@
             <div class="col-md-3 mb-5 mb-md-0" id="compte">
                 <h4 class="text-uppercase">Mon compte</h4>
                 <ul>
-                    <li><a href="<?= site_url('Customer_controller/register/') ?>">S'inscrire</a></li>
-                    <li><a href="<?= site_url('Customer_controller/connect/') ?>">Se connecter</a></li>
-                    <li><a href="">Mot de passe oublié</a></li>
-                    <!-- <li><a href="">Déposer un véhicule</a></li> -->
+                    <?php if (isset($_SESSION['id'])) {
+                    ?>
+                        <li>
+                            <a href="<?= site_url('Customer_controller/profil/' . $_SESSION['id']) ?>">Mon profil</a>
+                        </li>
+                        <li>
+                            <a href="<?= site_url('Customer_controller/disconnect/') ?>">Déconnexion</a>
+                        </li>
+
+                    <?php
+                    } else {
+                    ?>
+
+                        <li>
+                            <a href="<?= site_url('Customer_controller/register/') ?>">S'inscrire</a>
+                        </li>
+                        <li>
+                            <a href="<?= site_url('Customer_controller/connect/') ?>">Se connecter</a>
+                        </li>
+                        <li><a href="">Mot de passe oublié</a></li>
+                        <!-- <li><a href="">Déposer un véhicule</a></li> -->
+                    <?php
+                    }
+                    ?>
                 </ul>
             </div>
             <!-- Footer Sécurité-->

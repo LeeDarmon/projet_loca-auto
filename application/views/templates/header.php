@@ -26,41 +26,52 @@
     <?php
     };
     ?>
+    <!-- Navbar -->
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
         <a class="navbar-brand" href="<?= base_url(); ?>">Loca-Auto</a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
+            <!-- <i class="fas fa-car"></i> -->
         </button>
 
         <div class="collapse navbar-collapse" id="navbarNav">
-            <ul class="navbar-nav">
-                <li class="nav-item active">
-                    <a class="nav-link" href="<?= base_url(); ?>">Accueil</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="<?= site_url('Vehicle_controller/listVehicles/') ?>">Louer une voiture</a>
-                </li>
-                <?php if (isset($_SESSION['id'])) {
-                ?>
-                    <li class="nav-item">
-                        <a class="nav-link" href="<?= site_url('Customer_controller/profil/' . $_SESSION['id']) ?>">Mon profil</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="<?= site_url('Customer_controller/disconnect/') ?>">Déconnexion</a>
-                    </li>
-                <?php
+            <div class="d-flex flex-column flex-md-row w-100">
+                <div class="left-navbar">
+                    <ul class="navbar-nav">
+                        <li class="nav-item active">
+                            <a class="nav-link" href="<?= base_url(); ?>">Accueil</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="<?= site_url('Vehicle_controller/listVehicles/') ?>">Louer une voiture</a>
+                        </li>
+                    </ul>
+                </div>
 
-                } else {
-                ?>
-                    <li class="nav-item">
-                        <a class="nav-link" href="<?= site_url('Customer_controller/register/') ?>">Inscription</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="<?= site_url('Customer_controller/connect/') ?>">Connexion</a>
-                    </li>
-                <?php
-                }
-                ?>
-            </ul>
+                <div class="right-navbar ml-md-auto">
+                    <ul class="navbar-nav">
+                        <?php if (isset($_SESSION['id'])) {
+                        ?>
+                            <li class="nav-item">
+                                <a class="nav-link" href="<?= site_url('Customer_controller/profil/' . $_SESSION['id']) ?>">Mon profil</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="<?= site_url('Customer_controller/disconnect/') ?>">Déconnexion</a>
+                            </li>
+                        <?php
+
+                        } else {
+                        ?>
+                            <li class="nav-item">
+                                <a class="nav-link" href="<?= site_url('Customer_controller/register/') ?>">Inscription</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="<?= site_url('Customer_controller/connect/') ?>">Connexion</a>
+                            </li>
+                        <?php
+                        }
+                        ?>
+                    </ul>
+                </div>
+            </div>
         </div>
     </nav>

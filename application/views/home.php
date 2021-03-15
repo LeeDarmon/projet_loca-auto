@@ -1,3 +1,4 @@
+<!-- Section Home/Index -->
 <div class="container-fluid">
 	<?php
 	// var_dump($_SESSION);
@@ -45,5 +46,4 @@
 			<a class="btn btn-primary" href="index.php/Vehicle_controller/listVehicles">Voir notre catalogue</a>
 		</div>
 	</div>
-
 </div>
