@@ -8,37 +8,37 @@
 
         <div class="col-12 col-md-6">
             <label for="firstname">Prénom</label>
-            <input type="text" name="firstname" class="form-control">
+            <input type="text" name="firstname" class="form-control" value="<?php if(isset($_POST['firstname'])){echo $_POST['firstname'];}?>">
             <?php echo form_error('firstname'); ?>
         </div>
 
         <div class="col-12 col-md-6">
             <label for="lastname">Nom</label>
-            <input name="lastname" class="form-control">
+            <input name="lastname" class="form-control" value="<?php if(isset($_POST['lastname'])){echo $_POST['lastname'];}?>">
             <?php echo form_error('lastname'); ?>
         </div>
 
         <div class="col-12 col-md-6">
             <label for="birth_date">Date de naissance</label>
-            <input type="date" name="birth_date" class="form-control">
+            <input type="date" name="birth_date" class="form-control" value="<?php if(isset($_POST['birth_date'])){echo $_POST['birth_date'];}?>">
             <?php echo form_error('birth_date'); ?>
         </div>
 
         <div class="col-12 col-md-6">
             <label for="phone_number">Téléphone</label>
-            <input name="phone_number" class="form-control">
+            <input name="phone_number" class="form-control" value="<?php if(isset($_POST['phone_number'])){echo $_POST['phone_number'];}?>">
             <?php echo form_error('phone_number'); ?>
         </div>
 
         <div class="col-12 col-md-6">
             <label for="email_cust">Email</label>
-            <input type="email" name="email_cust" class="form-control">
+            <input type="email" name="email_cust" class="form-control" value="<?php if(isset($_POST['email_cust'])){echo $_POST['email_cust'];}?>">
             <?php echo form_error('email_cust'); ?>
         </div>
 
         <div class="col-12 col-md-6">
             <label for="pswd_cust">Mot de passe</label>
-            <input type="password" name="pswd_cust" class="form-control">
+            <input type="password" name="pswd_cust" class="form-control" value="<?php if(isset($_POST['pswd_cust'])){echo $_POST['pswd_cust'];}?>">
             <?php echo form_error('pswd_cust'); ?>
         </div>
 
