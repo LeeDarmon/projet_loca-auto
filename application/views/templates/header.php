@@ -50,15 +50,26 @@
                 <div class="right-navbar ml-md-auto">
                     <ul class="navbar-nav">
                         <?php if (isset($_SESSION['id'])) {
+
+
+                            if ($_SESSION['role'] == 'customer') {
                         ?>
-                            <li class="nav-item">
-                                <a class="nav-link" href="<?= site_url('Customer_controller/profil/' . $_SESSION['id']) ?>">Mon profil</a>
-                            </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="<?= site_url('Customer_controller/profil/' . $_SESSION['id']) ?>">Mon profil</a>
+                                </li>
+                            <?php
+                            } else {
+                            ?>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="<?= site_url('Admin_controller/index/'); ?>">Dashboard Admin</a>
+                                </li>
+                            <?php
+                            }
+                            ?>
                             <li class="nav-item">
                                 <a class="nav-link" href="<?= site_url('Customer_controller/disconnect/') ?>">Déconnexion</a>
                             </li>
                         <?php
-
                         } else {
                         ?>
                             <li class="nav-item">

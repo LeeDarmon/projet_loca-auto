@@ -18,9 +18,8 @@ body {
 	background-size: cover;
 	background-attachment: fixed;
 	background-repeat: no-repeat;
-	backdrop-filter: blur(2px);
-	-webkit-backdrop-filter: blur(2px);
-	/* height: 100vh; */
+	/* backdrop-filter: blur(2px);
+	-webkit-backdrop-filter: blur(2px); */
 }
 
 #headerSection {

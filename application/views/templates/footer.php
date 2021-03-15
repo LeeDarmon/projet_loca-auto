@@ -1,7 +1,3 @@
-<!-- BOUTON SCROLL TO TOP -->
-<button onclick="topFunction()" id="myBtn" title="Go to top">
-    <i class="fas fa-chevron-up"></i>
-</button>
 <!-- Section Footer-->
 <footer class="footer pt-5 mt-5">
     <div class="container mt-3">
@@ -80,7 +76,10 @@
         </div>
     </div>
 </footer>
-
+<!-- BOUTON SCROLL TO TOP -->
+<button onclick="topFunction()" id="myBtn" title="Go to top">
+    <i class="fas fa-chevron-up"></i>
+</button>
 <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-Piv4xVNRyMGpqkS2by6br4gNJ7DXjqk09RmUpJ8jgGtD7zP9yug3goQfGII0yAns" crossorigin="anonymous"></script>
 <script src="<?= base_url() ?>assets/js/script.js"></script>
