@@ -70,7 +70,7 @@ class Customer_controller extends CI_Controller
                     $this->load->view('templates/header', $data);
                     $this->load->view('customer/connect', $data);
                     $this->load->view('templates/footer');
-                // } else if ($result[0]->pswd_cust != $password) {
+                    // } else if ($result[0]->pswd_cust != $password) {
                 } else if (!password_verify($password, $mdp)) {
                     $data['error'] = 'Le champ email et/ou mot de passe sont incorrects';
                     $data['title'] = 'connexion';
@@ -117,7 +117,6 @@ class Customer_controller extends CI_Controller
         $this->form_validation->set_rules('birth_date', 'date de naissance', 'required');
         $this->form_validation->set_rules('phone_number', 'numeros de telephone', 'required');
         $this->form_validation->set_rules('email_cust', 'mail', 'required');
-        $this->form_validation->set_rules('pswd_cust', 'mot de passe', 'required');
         $this->form_validation->set_rules('license', 'license', 'required');
 
         $modify = array(
@@ -126,7 +125,6 @@ class Customer_controller extends CI_Controller
             'birth_date' => $this->input->post('birth_date'),
             'phone_number' => $this->input->post('phone_number'),
             'email_cust' => $this->input->post('email_cust'),
-            'pswd_cust' => $this->input->post('pswd_cust'),
             'license' => $this->input->post('license')
         );
 

@@ -15,8 +15,8 @@
         <div class="col-12 col-md-6">
             <label for="lastname">Lastname</label>
             <input name="lastname" class="form-control" value="<?= $profil['lastname'] ?>"">
-    <?php echo form_error('lastname'); ?>
-    </div>
+        <?php echo form_error('lastname'); ?>
+        </div>
 
     <div class=" col-12 col-md-6">
             <label for="birth_date">Birth date</label>
@@ -36,31 +36,25 @@
             <?php echo form_error('email_cust'); ?>
         </div>
 
-        <div class="col-12 col-md-6">
+        <!-- <div class="col-12 col-md-6">
             <label for="pswd_cust">Password</label>
             <input type="password" name="pswd_cust" class="form-control" value="<?= $profil['pswd_cust'] ?>">
             <?php echo form_error('pswd_cust'); ?>
-        </div>
+        </div> -->
 
-        <div class="offset-3 col-6">
+        <div class="col-12 col-md-6">
             <label for="license">Avez vous le permis?</label>
 
             <select name="license" id="license-select" class="custom-select">
                 <option value="1">yes</option>
                 <option value="0">No</option>
-
-
             </select>
         </div>
-        <div class="col-3"></div>
-        <br>
+    </div>
 
-        <div class="offset-3 col-6 mt-3">
-            <input type="submit" name="submit" value="Modification" class="btn btn-success btn-lg mx-auto d-block">
-        </div>
-
+    <div class="row justify-content-center my-4 pb-4">
+        <input type="submit" name="submit" value="Modification" class="btn btn-primary">
     </div>
 
     </form>
-
 </div>

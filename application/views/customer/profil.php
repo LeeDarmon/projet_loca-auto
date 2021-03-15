@@ -1,3 +1,4 @@
+<!-- Section profil user -->
 <div class="container mb-5">
     <h1 class="text-center mt-5 opacity" id="titleSection">Profil</h1>
 
