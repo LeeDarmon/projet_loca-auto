@@ -63,7 +63,9 @@ class Customer_controller extends CI_Controller
             $password = $this->input->post('pswd_cust');
             if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                 $result = $this->Customer_model->get_cust_connect($email);
-                $mdp = $result[0]->pswd_cust;
+                if( $result != NULL){
+                    $mdp = $result[0]->pswd_cust;
+                }
                 if ($result == NULL) {
                     $data['error'] = 'Le champ email et/ou mot de passe sont incorrects';
                     $data['title'] = 'connexion';

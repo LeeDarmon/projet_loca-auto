@@ -257,7 +257,9 @@ class Admin_controller extends CI_Controller
             $password = $this->input->post('password_a');
             if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                 $result = $this->Admin_model->get_admin_connect($email);
-                $mdp = $result[0]->password_a;
+                if( $result != NULL){
+                    $mdp = $result[0]->password_a;
+                }
                 if ($result == NULL) {
                     $data['error'] = 'Le champ email et/ou mot de passe sont incorrects';
                     $data['title'] = 'connexion';
