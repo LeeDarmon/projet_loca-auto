@@ -43,7 +43,7 @@
                             <h6 class="mb-0">Date de naissance</h6>
                         </div>
                         <div class="col-sm-9 text-secondary">
-                            <?= $profil['birth_date'] ?>
+                            <?=date_format(date_create($profil['birth_date']) , "d/m/Y")?>
                         </div>
                     </div>
                     <hr>
@@ -80,7 +80,7 @@
                     ?>
                             <div class="row">
                                 <div class="col-6"><img src="<?= base_url(); ?>assets/images/<?= $actuallys->url_image; ?>" alt="<?= $actuallys->markName . ' ' . $actuallys->vehicle_model; ?>" class="img-thumbnail"></div>
-                                <p class="col-6"><?= $actuallys->vehicle_model ?> <?= $actuallys->markName ?> Date de début : <?= $actuallys->start_date ?>- Date de fin : <?= $actuallys->end_date ?></p>
+                                <p class="col-6"><?= $actuallys->vehicle_model ?> <?= $actuallys->markName ?> Date de début : <?=date_format(date_create($actuallys->start_date) , "d/m/Y")?>- Date de fin : <?=date_format(date_create($actuallys->end_date) , "d/m/Y")?></p>
                             </div>
                     <?php
                         }
@@ -101,7 +101,7 @@
                         foreach ($old as $olds) {
                     ?>
                             <h3><?= $olds->markName ?> <?= $olds->vehicle_model ?></h3>
-                            <p>Date de début : <?= $olds->start_date ?> / Date de fin : <?= $olds->end_date ?></p>
+                            <p>Date de début : <?=date_format(date_create($olds->start_date) , "d/m/Y")?> / Date de fin : <?=date_format(date_create($olds->end_date) , "d/m/Y")?></p>
                             <hr />
                     <?php
                         }
