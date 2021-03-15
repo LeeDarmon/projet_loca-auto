@@ -29,6 +29,7 @@ class Rent_model extends CI_Model
         rent.cost ,
         rent.start_date,
         rent.end_date ,
+        rent.validated,
         customer.id AS customerId,
         customer.firstname ,
         customer.lastname ,
