@@ -1,34 +1,39 @@
-<div class="container">
+<div class="container opacity mb-5">
 
-    <a href = '<?=base_url() . "index.php/Admin_controller/addVehicle/"?>'>Ajouter une voiture</a>
+<h1 class="text-center mt-5" id="titleSection">Liste des vehicules</h1>
 
-    <table class="bg-light p-4"> 
+    <a class="btn btn-primary" href= '<?=base_url() . "index.php/Admin_controller/"?>'>Retour Accueil</a>
+
+    <a class="btn btn-primary" href= '<?=base_url() . "index.php/Admin_controller/addVehicle/"?>'>Ajouter une voiture</a>
+
+    <table class="bg-light"> 
         <tr>
-            <th>ID</th>
-            <th>Marque</th>
-            <th>Modele</th>
-            <th>Type</th>
-            <th>nbr de place</th>
-            <th>nbr dispo</th>
-            <th>prix / jour</th>
-            <th>ou</th>
+            <th class="p-3">ID</th>
+            <th class="p-3">Photo</th>
+            <th class="p-3">Marque</th>
+            <th class="p-3">Modele</th>
+            <th class="p-3">Type</th>
+            <th class="p-3">nbr de place</th>
+            <th class="p-3">nbr dispo</th>
+            <th class="p-3">prix / jour</th>
+            <th class="p-3">ou</th>
         </tr>
         <?php
         foreach($vehicles as $vehicle) {
         ?>
         
             <tr>
-                <td><?= $vehicle['idVehicle']?></td>
-                <td><?= $vehicle['Mark']?></td>
-                <td><?= $vehicle['Model']?></td>
-                <td><?= $vehicle['Type']?></td>
-                <td><?= $vehicle['Places']?></td>
-                <td><?= $vehicle['Dispo']?></td>
-                <td><?= $vehicle['Forfait']?></td>
-                <td><?= $vehicle['namePark']?></td>
-                <td><a href = "<?=base_url() . 'index.php/Admin_controller/viewVehicle/' . $vehicle['idVehicle'] ?>">Voir plus</a></td>
-                <td><a href = "<?=base_url() . 'index.php/Admin_controller/editVehicle/' . $vehicle['idVehicle'] ?>">Modifier</a></td>
-                <td><a href = "<?=base_url() . 'index.php/Admin_controller/deleteVehicle/' . $vehicle['idVehicle'] ?>">Supprimer</a></td>
+                <td class="p-3"><?= $vehicle['idVehicle']?></td>
+                <td><img src="<?= base_url() ?>assets/images/<?= $vehicle['Image'] ?>" alt="<?= $vehicle['Mark'] . ' ' . $vehicle['Model'] ?>" class="img-thumbnail" width="100px"></td>
+                <td class="p-3"><?= $vehicle['Mark']?></td>
+                <td class="p-3"><?= $vehicle['Model']?></td>
+                <td class="p-3"><?= $vehicle['Type']?></td>
+                <td class="p-3"><?= $vehicle['Places']?></td>
+                <td class="p-3"><?= $vehicle['Dispo']?></td>
+                <td class="p-3"><?= $vehicle['Forfait']?></td>
+                <td class="p-3"><?= $vehicle['namePark']?></td>
+                <td class="p-3"><a href = "<?=base_url() . 'index.php/Admin_controller/editVehicle/' . $vehicle['idVehicle'] ?>">Modifier</a></td>
+                <td class="p-3"><a href = "<?=base_url() . 'index.php/Admin_controller/deleteVehicle/' . $vehicle['idVehicle'] ?>">Supprimer</a></td>
             </tr>
         
         <?php
