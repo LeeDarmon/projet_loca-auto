@@ -31,8 +31,7 @@ class Rent_controller extends CI_Controller
         else // Le formulaire est valide
         { 
             $data = array( 
-
-                'cost' => $this->input->post('final_price'),
+                'cost' => $this->input->post('cost'),
                 'start_date' => $this->input->post('start_date'),
                 'end_date' => $this->input->post('end_date'),
                 'id_start_park' => $this->input->post('id_start_park'),
@@ -40,10 +39,9 @@ class Rent_controller extends CI_Controller
                 'validated' => 0,
                 'id_Customer' => $_SESSION['id'],
                 'id_Vehicle' => $idVehicle,
-
             ); 
             $this->Rent_model->insert($data); 
-            redirect("Admin_controller/index");
+            redirect("Customer_controller/profil/".$_SESSION['id']);
         } 
     }
 }
