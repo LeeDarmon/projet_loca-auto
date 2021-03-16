@@ -97,6 +97,7 @@ class Vehicle_model extends CI_Model
         Parking.id AS idPark,
         Parking.location AS namePark'
         );
+
         $this->db->from('Vehicle');
         $this->db->join('Mark', 'Vehicle.id_Mark = Mark.id');
         $this->db->join('Parking', 'Vehicle.id_Parking = Parking.id');
@@ -105,4 +106,31 @@ class Vehicle_model extends CI_Model
         $query = $this->db->get();
         return $query->result_array();
     }
+
+    public function search_vehicle($model){
+        $this->db->select(
+            '
+        vehicle.id AS idVehicle,
+        vehicle_model AS Model,
+        vehicle_type AS Type,
+        vehicle_description AS Description,
+        nb_seat AS Places,
+        nb_vehicle_dispo AS Dispo,
+        price_day AS Forfait,
+        url_image AS Image,
+        id_Mark,
+        id_Parking,
+        Mark.name AS Mark,
+        Parking.id AS idPark,
+        Parking.location AS namePark'
+        );
+        $this->db->from('Vehicle');
+        $this->db->join('Mark', 'Vehicle.id_Mark = Mark.id');
+        $this->db->join('Parking', 'Vehicle.id_Parking = Parking.id');
+        $this->db->like('vehicle.vehicle_model', $model); $this->db->or_like('Mark.name', $model);
+        $query = $this->db->get();
+        return $query->result_array();
+    }
+
+
 }

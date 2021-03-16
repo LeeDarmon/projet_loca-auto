@@ -1,11 +1,15 @@
 <div class="container my-5">
     <h1 class="text-center mb-3 opacity" id="titleSection">Catalogue de véhicules</h1>
+
     <div class="row mb-3 justify-content-end">
-        <form class="form-inline my-2 my-lg-0 px-3">
-            <input class="form-control mr-sm-2" type="search" placeholder="Recherche" aria-label="Recherche">
-            <button class="btn btn-primary my-2 my-sm-0" type="submit"><i class="fas fa-search"></i></button>
-        </form>
+    <?php $attributes = array('class' => 'form-inline my-2 my-lg-0 px-3', 'id' => 'myform');
+
+echo form_open('Vehicle_controller/search/',$attributes) ?>
+    <input class="form-control mr-sm-2" type="search" placeholder="Recherche" name="model" aria-label="Recherche">
+    <button class="btn btn-primary my-2 my-sm-0 " type="submit"><i class="fas fa-search"></i></button>
+</form>
     </div>
+
     <div class="row">
         <?php
         foreach ($vehicles as $vehicle) {

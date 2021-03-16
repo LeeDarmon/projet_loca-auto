@@ -38,6 +38,13 @@ class Customer_model extends CI_Model
         $this->db->delete('Customer');
     }
 
+    public function delete_customer_and_rent($id){
+        $this->db->from('rent');
+        $this->db->join('customer', 'customer.id = rent.id_Customer');
+        $this->db->where('rent.id_Customer', $id);
+        $this->db->delete();
+    }
+
     public function get_customer_rent($id)
     {
         $this->db->select('*');
