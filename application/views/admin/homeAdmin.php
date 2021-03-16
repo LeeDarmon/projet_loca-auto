@@ -1,11 +1,8 @@
-<div class="container opacity mb-5">
-
-    <h1 class="text-center mt-5" id="titleSection">Location en cours</h1>
-
-
+<div class="container opacity mb-5" id="main">
     <a class="btn btn-primary" href="<?= base_url() . 'index.php/Admin_controller/listVehicles' ?>">Liste des voitures</a>
     <a class="btn btn-primary" href="<?= base_url() . 'index.php/Admin_controller/listCustomers' ?>">Liste des clients</a>
 
+    <h1 class="text-center mt-3" id="titleSection">Locations en cours</h1>
     <?php
     foreach ($actually_rents as $actually_rent) {
     ?>
@@ -22,35 +19,33 @@
                 <p><?= $actually_rent->lastname ?></p>
                 <p><?= $actually_rent->phone_number ?></p>
                 <p><?= $actually_rent->email_cust ?></p>
-                <a href="<?= base_url() . 'index.php/Admin_controller/viewCustomer/' . $actually_rent->customerId ?>">Voir plus</a>
+                <a href="<?= base_url() . 'index.php/Admin_controller/viewCustomer/' . $actually_rent->customerId ?>" class="btn btn-primary">Voir plus</a>
             </div>
             <div class="col-12 col-md-3">
-                <p><?=date_format(date_create($actually_rent->start_date) , "d/m/Y")?> à <?= $actually_rent->locationStart ?>
+                <p><?= date_format(date_create($actually_rent->start_date), "d/m/Y") ?> à <?= $actually_rent->locationStart ?>
                 <p>
                 <p>au</p>
-                <p><?=date_format(date_create($actually_rent->end_date) , "d/m/Y")?> à <?= $actually_rent->locationEnd ?>
+                <p><?= date_format(date_create($actually_rent->end_date), "d/m/Y") ?> à <?= $actually_rent->locationEnd ?>
                 <p>
                 <p>Prix => <?= $actually_rent->cost ?>€</p>
             </div>
             <?php
-            if($actually_rent->validated == 0){
-                ?>
+            if ($actually_rent->validated == 0) {
+            ?>
                 <div class="col-12 col-md-2"><a href='<?= base_url() . "index.php/Rent_controller/valid_rent/" . $actually_rent->rentId ?>'>Valider</a>
                 </div>
-                <?php
-            }else{
+            <?php
+            } else {
                 echo '<div class="col-12 col-md-2">Location validé </div>';
             }
             ?>
-
         </div>
-        <hr>
-
+        <hr />
     <?php
     }
     ?>
-
-    <h1 class="text-center mt-5" id="titleSection">Historique des locations</h1>
+    <hr />
+    <h1 class="text-center mt-3" id="titleSection">Historique des locations</h1>
     <?php
     foreach ($old_rents as $old_rent) {
     ?>
@@ -67,13 +62,13 @@
                 <p><?= $old_rent->lastname ?></p>
                 <p><?= $old_rent->phone_number ?></p>
                 <p><?= $old_rent->email_cust ?></p>
-                <a href="<?= base_url() . 'index.php/Admin_controller/viewCustomer/' . $old_rent->customerId ?>">Voir plus</a>
+                <a href="<?= base_url() . 'index.php/Admin_controller/viewCustomer/' . $old_rent->customerId ?>" class="btn btn-primary">Voir plus</a>
             </div>
             <div class="col-12 col-md-3">
-                <p><?=date_format(date_create($old_rent->start_date) , "d/m/Y")?> à <?= $old_rent->locationStart ?>
+                <p><?= date_format(date_create($old_rent->start_date), "d/m/Y") ?> à <?= $old_rent->locationStart ?>
                 <p>
                 <p>au</p>
-                <p><?=date_format(date_create($old_rent->end_date) , "d/m/Y")?> à <?= $old_rent->locationEnd ?>
+                <p><?= date_format(date_create($old_rent->end_date), "d/m/Y") ?> à <?= $old_rent->locationEnd ?>
                 <p>
                 <p>Prix => <?= $old_rent->cost ?>€</p>
             </div>

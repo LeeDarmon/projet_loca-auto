@@ -7,7 +7,7 @@
 	<div class="container my-5">
 		<div class="row">
 			<div class="col-md-12">
-				<div class="jumbotron jumbotron-fluid" id="backColorJumbotronPres">
+				<div class="jumbotron jumbotron-fluid opacity" id="jumbotron">
 					<div class="container">
 						<h1 class="display-4 mb-3">Présentation de notre agence</h1>
 						<p class="lead text-justify">Lorem ipsum dolor sit amet consectetur adipisicing elit. Dignissimos error aspernatur explicabo nostrum? Ut, ullam! Assumenda ex voluptates error est? Eaque hic, beatae quae facilis esse mollitia eos temporibus debitis!</p>
@@ -43,7 +43,7 @@
 
 	<div class="row justify-content-center mb-4">
 		<div class="col-md-4 text-center">
-			<a class="btn btn-primary" href="index.php/Vehicle_controller/listVehicles">Voir notre catalogue</a>
+			<a class="btn btn-primary" href="<?= base_url(); ?>index.php/Vehicle_controller/listVehicles">Voir notre catalogue</a>
 		</div>
 	</div>
 </div>

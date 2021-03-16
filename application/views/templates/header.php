@@ -35,7 +35,7 @@
         </button>
 
         <div class="collapse navbar-collapse" id="navbarNav">
-        
+
             <div class="d-flex flex-column flex-md-row w-100">
                 <div class="left-navbar">
                     <ul class="navbar-nav">
@@ -56,7 +56,7 @@
                             if ($_SESSION['role'] == 'customer') {
                         ?>
                                 <li class="nav-item">
-                                    <a class="nav-link" href="<?= site_url('Customer_controller/profil/' . $_SESSION['id']) ?>">Mon profil</a>
+                                    <a class="nav-link" href="<?= site_url('Customer_controller/profil/' . $_SESSION['id']) ?>">Mon compte</a>
                                 </li>
                             <?php
                             } else {
