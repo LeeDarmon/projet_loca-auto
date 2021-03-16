@@ -96,7 +96,6 @@ CREATE TABLE Rent(
 
 	,CONSTRAINT Rent_Customer_FK FOREIGN KEY (`id_Customer`) REFERENCES Customer(`id`)
 	,CONSTRAINT Rent_Vehicle0_FK FOREIGN KEY (`id_Vehicle`) REFERENCES Vehicle(`id`)
-	,CONSTRAINT Rent_Vehicle_AK UNIQUE (`id_Vehicle`)
 )ENGINE=InnoDB;
 
 
