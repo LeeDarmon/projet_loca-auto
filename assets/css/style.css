@@ -1,4 +1,5 @@
 @import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,400;0,600;0,700;1,400&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,400;0,700;1,400&display=swap");
 * {
 	padding: 0;
 	margin: 0;
@@ -10,6 +11,7 @@
 body,
 html {
 	scroll-behavior: smooth;
+	height: 100%;
 }
 
 body {
@@ -18,29 +20,39 @@ body {
 	background-size: cover;
 	background-attachment: fixed;
 	background-repeat: no-repeat;
-	/* backdrop-filter: blur(2px);
-	-webkit-backdrop-filter: blur(2px); */
+}
+
+#main {
+	position: relative;
+	min-height: 100%;
 }
 
 #headerSection {
-	/* background-color: #c5c5c5; */
-	background-image: url("../images/car-2580234_640.jpg");
+	background-image: url("../images/car-2506090_1920.jpg");
 	background-size: cover;
 	background-repeat: no-repeat;
+	background-position: center;
 	height: 300px;
 }
 
 #titleHeader {
-	font-size: 60px;
+	font-size: 100px;
 	font-weight: 700;
 	text-shadow: 2px 2px 8px black;
 	color: white;
 	text-transform: uppercase;
 }
 
-@media screen and (min-width: 1300px) {
+h1,
+h2,
+h3,
+h4 {
+	font-family: "Nunito", sans-serif;
+}
+
+@media screen and (max-width: 768px) {
 	#headerSection {
-		background-image: url("../images/car-2506090_1920.jpg");
+		background-image: url("../images/car-2443400_1920.jpg");
 		background-size: cover;
 		background-repeat: no-repeat;
 		background-position: center;
@@ -48,7 +60,7 @@ body {
 	}
 
 	#titleHeader {
-		font-size: 100px;
+		font-size: 75px;
 		font-weight: 700;
 		text-shadow: 2px 2px 8px black;
 		color: white;
@@ -56,17 +68,47 @@ body {
 	}
 }
 
-#backColorJumbotronPres {
-	background-color: rgba(233, 236, 239, 0.7);
+@media screen and (max-width: 430px) {
+	#headerSection {
+		background-image: url("../images/car-2580234_640.jpg");
+		background-size: cover;
+		background-repeat: no-repeat;
+		background-position: center;
+		height: 300px;
+	}
+
+	#titleHeader {
+		font-size: 40px;
+		font-weight: 700;
+		text-shadow: 2px 2px 8px black;
+		color: white;
+		text-transform: uppercase;
+	}
+
+	#jumbotron .container h1 {
+		font-size: 2.5rem !important;
+	}
+
+	#jumbotron .container p {
+		font-size: 1.2rem !important;
+	}
+}
+
+label {
+	font-size: 1.2rem;
+	font-weight: 700;
+	text-shadow: 1px 1px 4px black;
+	color: white;
 }
 
 /* Section Footer */
 footer {
 	color: #f4fefe;
 	text-align: center;
-	/* background-color: #131416; */
 	background: linear-gradient(45deg, #131416, #2c75ff);
 	padding: 10px 50px 10px;
+	position: absolute;
+	width: 100%;
 }
 
 footer h4 {

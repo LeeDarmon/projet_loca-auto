@@ -19,8 +19,6 @@
         </div>
     </div>
 
-    <!-- <p class="text-center">Vous avez oublié votre mot de passe ? Cliquez <a href="">ici</a></p> -->
-
     <div class="row justify-content-center my-4 pb-4">
         <input type="submit" name="submit" value="Connexion" class="btn btn-primary">
     </div>

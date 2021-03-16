@@ -45,7 +45,7 @@
                     if ($vehicle[0]['Dispo'] >= 1) {
                     ?>
 
-                        <div>
+                        <div class="mt-5">
                             <a class="btn btn-primary" href="
                             <?php if (isset($_SESSION['id']) && $_SESSION['id'] != '') {
                                 echo site_url('Rent_controller/addRent/' . $vehicle[0]['idVehicle']);
