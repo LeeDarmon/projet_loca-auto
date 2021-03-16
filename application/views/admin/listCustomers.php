@@ -45,8 +45,8 @@
         Etes vous sûr de vouloir supprimer ce customer?
       </div>
       <div class="modal-footer">
-      <a  type="button" class="btn btn-primary" href = '<?=base_url() . "index.php/Admin_controller/deleteCustomer/" . $customer['id'] ?>'>OUI</a>
-      <a  type="button" class="btn btn-secondary" href = '<?=base_url() . "index.php/Admin_controller/listCustomers/" ?>'>NON</a>
+      <a  type="button" class="btn btn-primary" href = '<?=base_url() . "index.php/Admin_controller/deleteCustomer/" . $customer['id'] ?>'>Supprimer</a>
+      <a  type="button" class="btn btn-secondary" href = '<?=base_url() . "index.php/Admin_controller/listCustomers/" ?>'>Annuler</a>
       </div>
     </div>
   </div>

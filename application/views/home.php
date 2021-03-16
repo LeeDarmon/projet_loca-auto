@@ -43,7 +43,7 @@
 
 	<div class="row justify-content-center mb-4">
 		<div class="col-md-4 text-center">
-			<a class="btn btn-primary" href="index.php/Vehicle_controller/listVehicles">Voir notre catalogue</a>
+			<a class="btn btn-primary" href="<?= base_url(); ?>index.php/Vehicle_controller/listVehicles">Voir notre catalogue</a>
 		</div>
 	</div>
 </div>

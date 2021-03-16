@@ -39,7 +39,7 @@
                 <div class="modal-dialog">
                     <div class="modal-content">
                         <div class="modal-header">
-                            <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+                            <h5 class="modal-title" id="exampleModalLabel">Suppression</h5>
                             <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                                 <span aria-hidden="true">&times;</span>
                             </button>
@@ -48,8 +48,8 @@
                             <p>Êtes-vous sûr de vouloir supprimer ce véhicule ?</p>
                         </div>
                         <div class="modal-footer">
-                            <a class="btn btn-primary" href="<?= base_url() . 'index.php/Admin_controller/deleteVehicle/' . $vehicle['idVehicle'] ?>">Supprimer ?</a>
-                            <button type="button" class="btn btn-secondaryy" data-dismiss="modal">Non</button>
+                            <a class="btn btn-primary" href="<?= base_url() . 'index.php/Admin_controller/deleteVehicle/' . $vehicle['idVehicle'] ?>">Supprimer</a>
+                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Annuler</button>
                         </div>
                     </div>
                 </div>
