@@ -113,7 +113,6 @@ class Admin_controller extends CI_Controller
             $config['file_name']        = time();
 
             $this->load->library('upload', $config);
-            var_dump($this->upload->data());
 
             if (!$this->upload->do_upload('url_image')) //Erreur dans l'enregistrement 
             {
@@ -201,7 +200,7 @@ class Admin_controller extends CI_Controller
 
                     );
                     $this->Vehicle_model->update($idVehicle, $data);
-                    $this->viewVehicle($idVehicle);
+                    $this->listVehicles();
                 }
             } else { //Aucune image envoyé
 
@@ -218,14 +217,21 @@ class Admin_controller extends CI_Controller
 
                 );
                 $this->Vehicle_model->update($idVehicle, $data);
-                var_dump($this->Vehicle_model->update($idVehicle, $data));
-                $this->viewVehicle($idVehicle);
+                $this->listVehicles();
             }
         }
     }
 
     public function deleteVehicle($idVehicle)
     {
+        // On récupère la voiture ( pour le nom de l'image )
+        $vehicle = $this->Vehicle_model->read($idVehicle);
+        // Suppression de l'image
+        define('PUBPATH',str_replace(SELF,'',FCPATH)); // added
+        $filestring = PUBPATH.'assets/images/'.$vehicle[0]['Image'];
+        unlink($filestring);
+
+        // Supression de la voiture en bdd
         $this->Vehicle_model->delete($idVehicle);
         $this->listVehicles();
     }
