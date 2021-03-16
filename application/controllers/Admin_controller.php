@@ -56,6 +56,8 @@ class Admin_controller extends CI_Controller
     {
 
         $data['customer'] = $this->Customer_model->read($idCustomer);
+        $data['actually'] = $this->Customer_model->select_rent_actually_or_old('actually', $idCustomer);
+        $data['old'] = $this->Customer_model->select_rent_actually_or_old('old', $idCustomer);
         $data["title"] = 'Admin | Client';
         $this->load->view('templates/header', $data);
         $this->load->view('admin/viewCustomer', $data);
@@ -64,6 +66,7 @@ class Admin_controller extends CI_Controller
 
     public function deleteCustomer($idCustomer)
     {
+        $this->Customer_model->delete_customer_and_rent($idCustomer);
         $this->Customer_model->delete($idCustomer);
         $this->listCustomers();
     }
